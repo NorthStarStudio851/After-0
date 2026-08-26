@@ -69,6 +69,7 @@
   <Project Path="UnityEditor.UI.csproj" />
   <Project Path="Unity.AI.Tracing.csproj" />
   <Project Path="Unity.RenderPipelines.Universal.2D.Editor.Overrides.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.2D.Sprite.Editor.csproj" />
   <Project Path="Unity.AI.Navigation.Editor.csproj" />
   <Project Path="Unity.AppUI.MVVM.csproj" />
@@ -95,7 +96,6 @@
   <Project Path="Unity.AppUI.Redux.Editor.csproj" />
   <Project Path="Unity.AI.Pbr.Srp.csproj" />
   <Project Path="Unity.AppUI.Undo.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.CollabProxy.Editor.csproj" />
   <Project Path="Unity.AI.Toolkit.Async.csproj" />
   <Project Path="Unity.RenderPipeline.Universal.ShaderLibrary.csproj" />
