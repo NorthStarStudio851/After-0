@@ -37,8 +37,11 @@ public class PlayerMover : MonoBehaviour
 void Update()
     {
        Vector3 direction = CameraRelative(ReadInput());
+        if(controller.isGrounded && verticalVelocity < 0f) verticalVelocity = -2f;
+        verticalVelocity += gravity * Time.deltaTime;
 
-       controller.Move(direction * moveSpeed * Time.deltaTime); 
+        Vector3 motion = direction * moveSpeed + Vector3.up * verticalVelocity;
+       controller.Move(motion * Time.deltaTime); 
     }
 
     private Vector2 ReadInput()
@@ -47,16 +50,19 @@ void Update()
 
         if(Keyboard.current != null)
         {
-            if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) input.y += 1f;
-            if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) input.y -= 1f;
-            if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) input.x += 1f;
-            if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) input.x -= 1f;
+                if(Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) input.y += 1f;
+                if(Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) input.y -= 1f;
+                if(Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) input.x += 1f;
+                if(Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) input.x -= 1f;
         }
+            if(input == Vector2.zero && Gamepad.current != null)
+            {
+                input = Gamepad.current.leftStick.ReadValue();
+            }
 
-        if (controller.isGrounded && verticalVelocity < 0f) verticalVelocity = -2f;
-
-        return input;
+            return Vector2.ClampMagnitude(input, 1f);
     }
+
 
   private Vector3 CameraRelative(Vector2 input)
    {

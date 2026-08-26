@@ -271,9 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IsometricCameraFollow
   target: {fileID: 1384586752}
   targetOffset: {x: 0, y: 1.2, z: 0}
-  pitch: 40.2
+  pitch: 57.1
   yaw: 45
-  distance: 18
+  distance: 28
   followSmoothTime: 0.18
 --- !u!1 &367394531
 GameObject:
@@ -695,7 +695,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!23 &1384586750
 MeshRenderer:
   m_ObjectHideFlags: 0
