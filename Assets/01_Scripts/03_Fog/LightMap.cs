@@ -105,6 +105,10 @@ public class LightMap : MonoBehaviour
         levels = new byte[resolution * resolution];
     }
 
+    //The list is collected once, at startup, and nothing watches it afterwards. Anything that
+    //lights, moves or removes a pole has to say so here, or the texture stays the old one.
+    public void MarkDirty() => dirty = true;
+
     [ContextMenu("Rebuild")]
     public void Rebuild()
     {
